@@ -10,14 +10,14 @@ import Link from "next/link";
 const HomePage = () => {
     return (
         <div className="flex gap-4 lg:gap-10 ls:gap-[69px] justify-center items-center h-full min-h-screen px-4 mv:px-12 lg:px-[72px] py-14">
-            <div className="w-full mv:w-[350px] xl:w-[446px] flex flex-col justify-center gap-4 lg:gap-6">
+            <div className="w-full mp:w-[350px] md:w-[400px] xl:w-[446px] flex flex-col justify-center gap-4 lg:gap-6">
                 <div className="flex justify-center items-center gap-[5px]">
                     <Image src={logo} width={36} height={30} alt="logo" className="w-9 h-[30px]"></Image>
                     <p className="text-center text-brand_color font-semibold text-[20px] lg:text-[26px] leading-[110%] font-alexandria">Wiztecbd</p>
                 </div>
                 <div className="space-y-2">
-                    <p className="text-center text-[24px] lg:text-[32px] leading-[110%] font-semibold">Create New Account</p>
-                    <p className="text-center text-[14px] lg:text-[16px] leading-[110%] font-medium">Let&apos;s login to grab amazing deal</p>
+                    <p className="text-center text-[24px] xl:text-[32px] leading-[110%] font-semibold">Create New Account</p>
+                    <p className="text-center text-[14px] xl:text-[16px] leading-[110%] font-medium">Let&apos;s login to grab amazing deal</p>
                 </div>
                 <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
                     <Image src={google} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
@@ -38,7 +38,7 @@ const HomePage = () => {
                     </Link>
                 </div>
             </div>
-            <div className="grow hidden md:block">
+            <div className="grow hidden lg:block">
                 <svg className="absolute w-0 h-0">
                     <defs>
                         <clipPath id="customClip" clipPathUnits="objectBoundingBox">
