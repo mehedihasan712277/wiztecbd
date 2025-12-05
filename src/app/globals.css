@@ -1,20 +1,31 @@
 @import "tailwindcss";
 
+/* --------------------------------------------------
+   THEME (Expose CSS variables into Tailwind)
+-------------------------------------------------- */
 @theme inline {
+    /* font families */
     --font-general-sans: var(--font-general-sans);
     --font-alexandria: var(--font-alexandria);
 
-    /* brand color */
+    /* brand */
     --color-brand_color: var(--color-brand_color);
+    --color-brand_color_soft: var(--color-brand_color_soft);
 
-    /* background color */
+    /* backgrounds */
     --color-bg: var(--color-bg);
-    --color-bg-soft: var(--color-bg-soft);
+    --color-bg_secondary: var(--color-bg_secondary);
 
-    /* text-color */
+    /* borders */
+    --color-border_color: var(--color-border_color);
+    --color-stroke: var(--color-stroke);
+
+    /* text */
     --color-text-heading: var(--color-text-heading);
     --color-text-soft: var(--color-text-soft);
+    --color-text_light: var(--color-text_light);
 
+    /* breakpoints */
     --breakpoint-ms: 300px;
     --breakpoint-mm: 350px;
     --breakpoint-ml: 400px;
@@ -28,24 +39,46 @@
     --breakpoint-ds: 1800px;
 }
 
+/* --------------------------------------------------
+   ROOT VARIABLES (Light & Dark Mode)
+-------------------------------------------------- */
 @layer base {
     :root {
+        /* brand */
         --color-brand_color: #6c0443;
         --color-brand_color_soft: #59344f;
+
+        /* backgrounds */
         --color-bg: #ffffff;
         --color-bg_secondary: #f5f6f7;
+
+        /* borders */
         --color-border_color: #dfe2e6;
+        --color-stroke: #cbd5e1;
+
+        /* text */
         --color-text-heading: #000000;
         --color-text-soft: #42526d;
+        --color-text_light: #9e9e9d;
     }
+
     .dark {
+        /* brand (same in dark mode) */
         --color-brand_color: #6c0443;
         --color-brand_color_soft: #59344f;
+
+        /* backgrounds */
         --color-bg: #181818;
-        --color-bg_secondary: #f5f6f7;
-        --color-border_color: #dfe2e6;
-        --color-text-heading: #cccccc;
-        --color-text-soft: #42526d;
+        --color-bg_secondary: #1f1f1f;
+
+        /* borders */
+        --color-border_color: #2a2a2a;
+        --color-stroke: #3a3a3a;
+
+        /* text */
+        --color-text-heading: #dcdcdc;
+        --color-text-soft: #a3a3a3;
+        --color-text_light: #7d7d7d;
     }
 }
 

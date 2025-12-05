@@ -1,3 +1,4 @@
+"use client";
 import img from "@/src/assets/photo.png";
 import google from "@/src/assets/icons/google.png";
 import apple from "@/src/assets/icons/apple.png";
@@ -6,8 +7,20 @@ import logo from "@/src/assets/icons/up-arrow.png";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 
 const HomePage = () => {
+    const [email, setEmail] = useState("rownok@gmail.com");
+    const [password, setPassword] = useState("**************");
+    const [showPassword, setShowPassword] = useState(false);
+    const [rememberMe, setRememberMe] = useState(false);
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("Login attempted with:", { email, rememberMe });
+    };
+
     return (
         <div className="flex gap-4 lg:gap-10 ls:gap-[69px] justify-center items-center h-full min-h-screen px-4 mv:px-12 lg:px-[72px] py-14">
             <div className="w-full mp:w-[350px] md:w-[400px] xl:w-[446px] flex flex-col justify-center gap-4 lg:gap-6">
@@ -31,6 +44,79 @@ const HomePage = () => {
                     <Image src={email_phone} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
                     <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with email/phone</span>
                 </button>
+
+                <div className="flex justify-center items-center gap-2.5">
+                    <div className="w-full h-px bg-stroke"></div>
+                    <p className="text-text-soft">Or</p>
+                    <div className="w-full h-px bg-stroke"></div>
+                </div>
+
+                {/* ----------form----------- */}
+                <div className="w-full">
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* Email Field */}
+                        <div className="relative">
+                            <input
+                                type="email"
+                                id="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="w-full px-4 pt-6 pb-2 bg-gray-100 border-0 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                placeholder=" "
+                            />
+                            <label htmlFor="email" className="absolute left-4 top-2 text-xs text-gray-500 pointer-events-none">
+                                Email
+                            </label>
+                        </div>
+
+                        {/* Password Field */}
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="w-full px-4 pt-6 pb-2 bg-gray-100 border-0 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
+                                placeholder=" "
+                            />
+                            <label htmlFor="password" className="absolute left-4 top-2 text-xs text-gray-500 pointer-events-none">
+                                Password
+                            </label>
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                            >
+                                {showPassword ? <EyeOff /> : <Eye size={20} />}
+                            </button>
+                        </div>
+
+                        {/* Remember Me & Forgot Password */}
+                        <div className="flex items-center justify-between">
+                            <label className="flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={rememberMe}
+                                    onChange={(e) => setRememberMe(e.target.checked)}
+                                    className="w-4 h-4 rounded border-gray-300 text-purple-800 focus:ring-purple-500"
+                                />
+                                <span className="ml-2 text-sm text-gray-700">Remember me</span>
+                            </label>
+                            <a href="#" className="text-sm text-gray-700 hover:text-gray-900 underline">
+                                Forgot Password?
+                            </a>
+                        </div>
+
+                        {/* Login Button */}
+                        <button
+                            type="submit"
+                            className="w-full bg-brand_color hover:bg-purple-800 text-white font-medium py-3 rounded-lg transition-colors"
+                        >
+                            Login
+                        </button>
+                    </form>
+                </div>
+                {/* ------------------------- */}
                 <div className="flex justify-center items-center gap-2">
                     <p className="text-[14px] mm:text-[16px] leading-[150%] font-medium">Don&apos;t have an account?</p>
                     <Link href="/" className="text-[14px] mm:text-[16px] text-brand_color_soft leading-[150%] font-medium">
