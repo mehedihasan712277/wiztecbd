@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme inline {
+    --font-general-sans: var(--font-general-sans);
+    --font-alexandria: var(--font-alexandria);
+
+    /* brand color */
+    --color-brand_color: var(--color-brand_color);
+
+    /* background color */
+    --color-bg: var(--color-bg);
+    --color-bg-soft: var(--color-bg-soft);
+
+    /* text-color */
+    --color-text-heading: var(--color-text-heading);
+    --color-text-soft: var(--color-text-soft);
+
+    --breakpoint-ms: 300px;
+    --breakpoint-mm: 350px;
+    --breakpoint-ml: 400px;
+    --breakpoint-mp: 500px;
+    --breakpoint-mv: 570px;
+    --breakpoint-btm: 710px;
+    --breakpoint-blm: 900px;
+    --breakpoint-blb: 1080px;
+    --breakpoint-ls: 1360px;
+    --breakpoint-lm: 1510px;
+    --breakpoint-ds: 1800px;
+}
+
+@layer base {
+    :root {
+        --color-brand_color: #6c0443;
+        --color-brand_color_soft: #59344f;
+        --color-bg: #ffffff;
+        --color-bg_secondary: #f5f6f7;
+        --color-border: #dfe2e6;
+        --color-text-heading: #000000;
+        --color-text-soft: #42526d;
+    }
+    .dark {
+        --color-brand_color: #6c0443;
+        --color-brand_color_soft: #59344f;
+        --color-bg: #181818;
+        --color-bg_secondary: #f5f6f7;
+        --color-border: #dfe2e6;
+        --color-text-heading: #cccccc;
+        --color-text-soft: #42526d;
+    }
+}
