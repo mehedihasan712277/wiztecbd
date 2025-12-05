@@ -16,6 +16,9 @@ const HomePage = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [rememberMe, setRememberMe] = useState(false);
 
+    // NEW → state to toggle the form
+    const [showForm, setShowForm] = useState(false);
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log("Login attempted with:", { email, rememberMe });
@@ -25,97 +28,117 @@ const HomePage = () => {
         <div className="flex gap-4 lg:gap-10 ls:gap-[69px] justify-center items-center h-full min-h-screen px-4 mv:px-12 lg:px-[72px] py-14">
             <div className="w-full mp:w-[350px] md:w-[400px] xl:w-[446px] flex flex-col justify-center gap-4 lg:gap-6">
                 <div className="flex justify-center items-center gap-[5px]">
-                    <Image src={logo} width={36} height={30} alt="logo" className="w-9 h-[30px]"></Image>
+                    <Image src={logo} width={36} height={30} alt="logo" className="w-9 h-[30px]" />
                     <p className="text-center text-brand_color font-semibold text-[20px] lg:text-[26px] leading-[110%] font-alexandria">Wiztecbd</p>
                 </div>
+
                 <div className="space-y-2">
                     <p className="text-center text-[24px] xl:text-[32px] leading-[110%] font-semibold">Create New Account</p>
                     <p className="text-center text-[14px] xl:text-[16px] leading-[110%] font-medium">Let&apos;s login to grab amazing deal</p>
                 </div>
+
+                {/* Google Button */}
                 <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
-                    <Image src={google} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
+                    <Image src={google} width={25} height={25} alt="icon" className="w-[25px] h-[25px]" />
                     <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with google</span>
                 </button>
+
+                {/* Apple Button */}
                 <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
-                    <Image src={apple} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
+                    <Image src={apple} width={25} height={25} alt="icon" className="w-[25px] h-[25px]" />
                     <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with apple</span>
                 </button>
-                <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
-                    <Image src={email_phone} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
-                    <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with email/phone</span>
-                </button>
 
-                <div className="flex justify-center items-center gap-2.5">
-                    <div className="w-full h-px bg-stroke"></div>
-                    <p className="text-text-soft">Or</p>
-                    <div className="w-full h-px bg-stroke"></div>
-                </div>
+                {/* Email/Phone Button — HIDDEN AFTER CLICK */}
+                {!showForm && (
+                    <button
+                        onClick={() => setShowForm(true)}
+                        className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center"
+                    >
+                        <Image src={email_phone} width={25} height={25} alt="icon" className="w-[25px] h-[25px]" />
+                        <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with email/phone</span>
+                    </button>
+                )}
 
-                {/* ----------form----------- */}
-                <div className="w-full">
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        {/* Email Field */}
-                        <div className="relative">
-                            <input
-                                type="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="w-full px-4 pt-6 pb-2 bg-gray-100 border-0 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
-                                placeholder=" "
-                            />
-                            <label htmlFor="email" className="absolute left-4 top-2 text-xs text-gray-500 pointer-events-none">
-                                Email
-                            </label>
-                        </div>
+                {/* Divider becomes hidden when form is open */}
+                {showForm && (
+                    <div className="flex justify-center items-center gap-2.5">
+                        <div className="w-full h-px bg-stroke"></div>
+                        <p className="text-text-soft">Or</p>
+                        <div className="w-full h-px bg-stroke"></div>
+                    </div>
+                )}
 
-                        {/* Password Field */}
-                        <div className="relative">
-                            <input
-                                type={showPassword ? "text" : "password"}
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="w-full px-4 pt-6 pb-2 bg-gray-100 border-0 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
-                                placeholder=" "
-                            />
-                            <label htmlFor="password" className="absolute left-4 top-2 text-xs text-gray-500 pointer-events-none">
-                                Password
-                            </label>
-                            <button
-                                type="button"
-                                onClick={() => setShowPassword(!showPassword)}
-                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                            >
-                                {showPassword ? <EyeOff /> : <Eye size={20} />}
-                            </button>
-                        </div>
-
-                        {/* Remember Me & Forgot Password */}
-                        <div className="flex items-center justify-between">
-                            <label className="flex items-center cursor-pointer">
+                {/* ---------- FORM (VISIBLE ONLY AFTER BUTTON CLICK) ---------- */}
+                {showForm && (
+                    <div className="w-full">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            {/* Email Field */}
+                            <div className="relative">
                                 <input
-                                    type="checkbox"
-                                    checked={rememberMe}
-                                    onChange={(e) => setRememberMe(e.target.checked)}
-                                    className="w-4 h-4 rounded border-gray-300 text-purple-800 focus:ring-purple-500"
+                                    type="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="w-full px-4 pt-6 pb-2 bg-gray-100 border-0 rounded-lg text-[16px] text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                                    placeholder=" "
                                 />
-                                <span className="ml-2 text-sm text-gray-700">Remember me</span>
-                            </label>
-                            <a href="#" className="text-sm text-gray-700 hover:text-gray-900 underline">
-                                Forgot Password?
-                            </a>
-                        </div>
+                                <label htmlFor="email" className="absolute left-4 top-2 text-xs text-gray-500 pointer-events-none">
+                                    Email
+                                </label>
+                            </div>
 
-                        {/* Login Button */}
-                        <button
-                            type="submit"
-                            className="w-full bg-brand_color hover:bg-purple-800 text-white font-medium py-3 rounded-lg transition-colors"
-                        >
-                            Login
-                        </button>
-                    </form>
-                </div>
+                            {/* Password Field */}
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    id="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="w-full px-4 pt-6 pb-2 bg-gray-100 border-0 rounded-lg text-[16px] text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-500 pr-12"
+                                    placeholder=" "
+                                />
+                                <label htmlFor="password" className="absolute left-4 top-2 text-xs text-gray-500 pointer-events-none">
+                                    Password
+                                </label>
+
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                                >
+                                    {showPassword ? <EyeOff /> : <Eye size={20} />}
+                                </button>
+                            </div>
+
+                            {/* Remember Me */}
+                            <div className="flex items-center justify-between text-[16px] leading-[150%]">
+                                <label className="flex items-center cursor-pointer">
+                                    <input
+                                        type="checkbox"
+                                        checked={rememberMe}
+                                        onChange={(e) => setRememberMe(e.target.checked)}
+                                        className="w-4 h-4 rounded border-[#6C727C] text-purple-800 focus:ring-purple-500"
+                                    />
+                                    <span className="ml-2 ">Remember me</span>
+                                </label>
+
+                                <a href="#" className=" underline">
+                                    Forgot Password?
+                                </a>
+                            </div>
+
+                            {/* Login Button */}
+                            <button
+                                type="submit"
+                                className="w-full bg-brand_color hover:bg-purple-800 text-[#EEEBED] text-[16px] leading-[150%] font-medium py-3.5  rounded-lg transition-colors"
+                            >
+                                Login
+                            </button>
+                        </form>
+                    </div>
+                )}
+
                 {/* ------------------------- */}
                 <div className="flex justify-center items-center gap-2">
                     <p className="text-[14px] mm:text-[16px] leading-[150%] font-medium">Don&apos;t have an account?</p>
@@ -124,6 +147,8 @@ const HomePage = () => {
                     </Link>
                 </div>
             </div>
+
+            {/* RIGHT SIDE IMAGE */}
             <div className="grow hidden lg:block">
                 <svg className="absolute w-0 h-0">
                     <defs>
@@ -136,7 +161,7 @@ const HomePage = () => {
                 <div className="relative w-full max-w-[780px]">
                     <div className="w-full" style={{ aspectRatio: "780 / 910" }}>
                         <div className="w-full h-full overflow-hidden" style={{ clipPath: "url(#customClip)" }}>
-                            <Image src={img} width={780} height={910} alt="img" className="w-full h-full"></Image>
+                            <Image src={img} width={780} height={910} alt="img" className="w-full h-full" />
                         </div>
                     </div>
                 </div>
