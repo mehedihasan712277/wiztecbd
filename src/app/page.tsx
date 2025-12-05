@@ -1,19 +1,41 @@
 import img from "@/src/assets/photo.png";
+import google from "@/src/assets/icons/google.png";
+import apple from "@/src/assets/icons/apple.png";
+import email_phone from "@/src/assets/icons/email_phone.png";
+import logo from "@/src/assets/icons/up-arrow.png";
+
 import Image from "next/image";
+import Link from "next/link";
 
 const HomePage = () => {
     return (
         <div className="flex gap-[69px] items-center h-full min-h-screen px-[72px] py-14">
-            <div className="w-[446px] flex flex-col justify-center">
-                <div>
-                    <p className="text-center font-alexandria">wiztecbd</p>
-                    <p className="text-center">Create New Account</p>
-                    <p className="text-center">Let’s login to grab amazing deal</p>
+            <div className="w-[446px] flex flex-col justify-center gap-6">
+                <div className="flex justify-center items-center gap-[5px]">
+                    <Image src={logo} width={36} height={30} alt="logo" className="w-9 h-[30px]"></Image>
+                    <p className="text-center text-brand_color font-semibold text-[26px] leading-[110%] font-alexandria">Wiztecbd</p>
                 </div>
-                <div className="flex flex-col gap-4">
-                    <button className="py-2 w-full border rounded">continue with google</button>
-                    <button className="py-2 w-full border rounded">continue with apple</button>
-                    <button className="py-2 w-full border rounded">continue with email/phone</button>
+                <div className="space-y-2">
+                    <p className="text-center text-[32px] leading-[110%] font-semibold">Create New Account</p>
+                    <p className="text-center text-[16px] leading-[110%] font-medium">Let&apos;s login to grab amazing deal</p>
+                </div>
+                <button className="p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-4 justify-center items-center">
+                    <Image src={google} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
+                    <span className="text-text-soft text-[16px] leading-[150%] font-medium">continue with google</span>
+                </button>
+                <button className="p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-4 justify-center items-center">
+                    <Image src={apple} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
+                    <span className="text-text-soft text-[16px] leading-[150%] font-medium">continue with apple</span>
+                </button>
+                <button className="p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-4 justify-center items-center">
+                    <Image src={email_phone} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
+                    <span className="text-text-soft text-[16px] leading-[150%] font-medium">continue with email/phone</span>
+                </button>
+                <div className="flex justify-center items-center gap-2">
+                    <p className="text-[16px] leading-[150%] font-medium">Don&apos;t have an account?</p>
+                    <Link href="/" className="text-[16px] text-brand_color_soft leading-[150%] font-medium">
+                        Sign Up
+                    </Link>
                 </div>
             </div>
             <div className="grow hidden md:block">

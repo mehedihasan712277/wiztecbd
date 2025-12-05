@@ -34,7 +34,7 @@
         --color-brand_color_soft: #59344f;
         --color-bg: #ffffff;
         --color-bg_secondary: #f5f6f7;
-        --color-border: #dfe2e6;
+        --color-border_color: #dfe2e6;
         --color-text-heading: #000000;
         --color-text-soft: #42526d;
     }
@@ -43,8 +43,12 @@
         --color-brand_color_soft: #59344f;
         --color-bg: #181818;
         --color-bg_secondary: #f5f6f7;
-        --color-border: #dfe2e6;
+        --color-border_color: #dfe2e6;
         --color-text-heading: #cccccc;
         --color-text-soft: #42526d;
     }
+}
+
+button {
+    cursor: pointer;
 }

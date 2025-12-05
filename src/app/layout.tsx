@@ -16,7 +16,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${generalSans.variable} ${alexandria.variable} antialiased`}>
-                <div className="max-w-[1440px] mx-auto">{children}</div>
+                <div className="max-w-[1440px] mx-auto text-text-heading font-general-sans">{children}</div>
             </body>
         </html>
     );
