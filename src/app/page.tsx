@@ -9,31 +9,31 @@ import Link from "next/link";
 
 const HomePage = () => {
     return (
-        <div className="flex gap-[69px] items-center h-full min-h-screen px-[72px] py-14">
-            <div className="w-[446px] flex flex-col justify-center gap-6">
+        <div className="flex gap-4 lg:gap-10 ls:gap-[69px] justify-center items-center h-full min-h-screen px-4 mv:px-12 lg:px-[72px] py-14">
+            <div className="w-full mv:w-[350px] xl:w-[446px] flex flex-col justify-center gap-4 lg:gap-6">
                 <div className="flex justify-center items-center gap-[5px]">
                     <Image src={logo} width={36} height={30} alt="logo" className="w-9 h-[30px]"></Image>
-                    <p className="text-center text-brand_color font-semibold text-[26px] leading-[110%] font-alexandria">Wiztecbd</p>
+                    <p className="text-center text-brand_color font-semibold text-[20px] lg:text-[26px] leading-[110%] font-alexandria">Wiztecbd</p>
                 </div>
                 <div className="space-y-2">
-                    <p className="text-center text-[32px] leading-[110%] font-semibold">Create New Account</p>
-                    <p className="text-center text-[16px] leading-[110%] font-medium">Let&apos;s login to grab amazing deal</p>
+                    <p className="text-center text-[24px] lg:text-[32px] leading-[110%] font-semibold">Create New Account</p>
+                    <p className="text-center text-[14px] lg:text-[16px] leading-[110%] font-medium">Let&apos;s login to grab amazing deal</p>
                 </div>
-                <button className="p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-4 justify-center items-center">
+                <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
                     <Image src={google} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
-                    <span className="text-text-soft text-[16px] leading-[150%] font-medium">continue with google</span>
+                    <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with google</span>
                 </button>
-                <button className="p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-4 justify-center items-center">
+                <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
                     <Image src={apple} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
-                    <span className="text-text-soft text-[16px] leading-[150%] font-medium">continue with apple</span>
+                    <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with apple</span>
                 </button>
-                <button className="p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-4 justify-center items-center">
+                <button className="p-3 lg:p-4 w-full border border-[#dfe2e6] rounded-lg flex gap-2 lg:gap-4 justify-center items-center">
                     <Image src={email_phone} width={25} height={25} alt="icon" className="w-[25px] h-[25px]"></Image>
-                    <span className="text-text-soft text-[16px] leading-[150%] font-medium">continue with email/phone</span>
+                    <span className="text-text-soft text-[14px] mm:text-[16px] leading-[150%] font-medium">continue with email/phone</span>
                 </button>
                 <div className="flex justify-center items-center gap-2">
-                    <p className="text-[16px] leading-[150%] font-medium">Don&apos;t have an account?</p>
-                    <Link href="/" className="text-[16px] text-brand_color_soft leading-[150%] font-medium">
+                    <p className="text-[14px] mm:text-[16px] leading-[150%] font-medium">Don&apos;t have an account?</p>
+                    <Link href="/" className="text-[14px] mm:text-[16px] text-brand_color_soft leading-[150%] font-medium">
                         Sign Up
                     </Link>
                 </div>

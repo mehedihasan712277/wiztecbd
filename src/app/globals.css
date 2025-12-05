@@ -19,12 +19,12 @@
     --breakpoint-mm: 350px;
     --breakpoint-ml: 400px;
     --breakpoint-mp: 500px;
-    --breakpoint-mv: 570px;
+    --breakpoint-mv: 576px;
     --breakpoint-btm: 710px;
     --breakpoint-blm: 900px;
     --breakpoint-blb: 1080px;
     --breakpoint-ls: 1360px;
-    --breakpoint-lm: 1510px;
+    --breakpoint-lm: 1440px;
     --breakpoint-ds: 1800px;
 }
 
