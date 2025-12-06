@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
-const HomePage = () => {
+const LogIn = () => {
     const [email, setEmail] = useState("rownok@gmail.com");
     const [password, setPassword] = useState("**************");
     const [showPassword, setShowPassword] = useState(false);
@@ -170,4 +170,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default LogIn;

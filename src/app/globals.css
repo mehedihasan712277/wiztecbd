@@ -24,6 +24,7 @@
     --color-text-heading: var(--color-text-heading);
     --color-text-soft: var(--color-text-soft);
     --color-text_light: var(--color-text_light);
+    --color-text-menu: var(--color-text-menu);
 
     /* breakpoints */
     --breakpoint-ms: 300px;
@@ -60,6 +61,7 @@
         --color-text-heading: #000000;
         --color-text-soft: #42526d;
         --color-text_light: #9e9e9d;
+        --color-text-menu: #434953;
     }
 
     .dark {
@@ -79,6 +81,7 @@
         --color-text-heading: #dcdcdc;
         --color-text-soft: #a3a3a3;
         --color-text_light: #7d7d7d;
+        --color-text-menu: #434953;
     }
 }
 
