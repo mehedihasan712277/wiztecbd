@@ -24,7 +24,7 @@ const Navbar = () => {
                 <div className="hidden lg:flex gap-6 xl:gap-8">
                     {menu.map((ele) => (
                         <Link
-                            href={`/${ele.link}`}
+                            href={`${ele.link}`}
                             key={ele.name}
                             className={`text-[18px] font-semibold ${ele.link === path ? "text-brand_color_soft" : "text-text-menu"}`}
                         >
